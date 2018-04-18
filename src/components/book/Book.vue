@@ -1,10 +1,10 @@
 <template>
     <div>
-          <Common-header bgColor="rgb(33,150,243)">
-            <span slot="title">Movie</span>
-          </Common-header> 
-          <h1>movie</h1>
-        <Common-footer bgColor="rgb(33,150,243)"></Common-footer>
+        <Common-header bgColor="rgb(121,85,75)">
+            <span slot="title">Book</span>
+        </Common-header> 
+          <h1>book</h1>
+        <Common-footer bgColor="rgb(121,85,75)"></Common-footer>
     </div>
 </template>
 
@@ -13,7 +13,7 @@ import CommonHeader from "@/components/common/Header";
 import CommonFooter from "@/components/common/Footer";
 export default {
   components: {
-    CommonHeader,
+    CommonHeader, 
     CommonFooter
   }
 };

@@ -1,16 +1,23 @@
 <template>
   <div id="app">
-    <!-- <img src="./assets/logo.png"> -->
+    <common-header></common-header>
     <router-view/>
+    <common-footer></common-footer>
   </div>
 </template>
 
 <script>
+import CommonHeader from '@/components/common/Header'
+import CommonFooter from '@/components/common/Footer'
 export default {
-  name: 'App'
+  name: 'App',
+  components:{
+     CommonHeader,
+     CommonFooter
+  }
 }
 </script>
 
 <style>
- 
+
 </style>
