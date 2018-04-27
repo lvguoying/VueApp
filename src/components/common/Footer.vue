@@ -1,15 +1,27 @@
 <template>
   <ul class="footer" :style="{backgroundColor:bgColor}">
-    <li><router-link to="/">电影</router-link></li>
-    <li><router-link to="/music">音乐</router-link></li>
-    <li><router-link to="/book">书籍</router-link></li>
-    <li><router-link to="/photo">图片</router-link></li>
+    <li><router-link to="/" @click.native="$emit('change','movie')">电影</router-link></li>
+    <li><router-link to="/music" @click.native="$emit('change','music')">音乐</router-link></li>
+    <li><router-link to="/book" @click.native="$emit('change','book')">书籍</router-link></li>
+    <li><router-link to="/photo" @click.native="$emit('change','photo')">图片</router-link></li>
   </ul>
 </template>
 
-<script>
+<script> 
 export default {
+  // props:['bgColor'],
+  data(){
+    return{
+      // bgColor:'rgb(33,150,243)'
+    }
+  },
   props:['bgColor']
+  // methods:{
+  //   clickHandler({bgColor,title}){
+  //       this.bgColor=bgColor;
+  //       this.$emit('change',{bgColor,title});
+  //   }
+  // }
 }
 </script>
 
@@ -32,6 +44,7 @@ export default {
 .footer li a {
   color: #ccc;
   text-decoration: none;
+  outline: none;
 }
 .footer li a.router-link-exact-active{
   color: #ffffff;

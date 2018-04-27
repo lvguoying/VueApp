@@ -8,6 +8,7 @@ import './assets/css/reset.css'
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
+global.API_PROXY = 'https://bird.ioliu.cn/v2/?url='
 new Vue({
   el: '#app',
   router,

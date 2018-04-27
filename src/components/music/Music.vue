@@ -1,10 +1,10 @@
 <template>
     <div>
-        <Common-header bgColor="rgb(0,150,136)">
+        <!-- <Common-header bgColor="rgb(0,150,136)">
             <span slot="title">Music</span>
-        </Common-header> 
+        </Common-header>  -->
           <h1>movie</h1>
-        <Common-footer bgColor="rgb(0,150,136)"></Common-footer>
+        <!-- <Common-footer bgColor="rgb(0,150,136)"></Common-footer> -->
     </div>
 </template>
 <script>

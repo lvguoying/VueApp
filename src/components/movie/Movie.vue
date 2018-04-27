@@ -1,24 +1,117 @@
 <template>
-    <div>
-          <Common-header bgColor="rgb(33,150,243)">
-            <span slot="title">Movie</span>
-          </Common-header> 
-          <h1>movie</h1>
-        <Common-footer bgColor="rgb(33,150,243)"></Common-footer>
-    </div>
+<div>
+  <ul class="list">
+    <li class="movie" v-for="(movie,index) in movieList" :key="index">
+      <div class="movie-img">
+        <img :src="movie.img" alt="">
+      </div>
+      <div class="movie-info">
+        <p class="movie-name">{{movie.nm}}</p>
+        <p>{{movie.ver}}</p>
+        <p>主演:{{movie.start}}</p>
+        <p>{{movie.showInfo}}</p>
+        <p>{{movie.nm}}</p>
+      </div>
+    </li>
+  </ul>
+  <div class="loading" v-show="isLoading">
+    <img src="../../assets/img/spinner.gif" alt="">
+  </div>
+  <div class="tip" v-show="isEnd">
+    <h3>数据到底了!</h3>
+  </div>
+</div>
+
 </template>
 
 <script>
-import CommonHeader from "@/components/common/Header";
-import CommonFooter from "@/components/common/Footer";
+import axios from "axios";
 export default {
-  components: {
-    CommonHeader,
-    CommonFooter
+  data() {
+    return {
+      movieList: [],
+      isLoading: true,
+      isEnd: false
+    };
+  },
+  methods: {
+    getMovieData() {
+      axios
+        .get(
+          API_PROXY +
+            `http://m.maoyan.com/movie/list.json?type=hot&offset=${
+              this.movieList.length
+            }&limit=10`
+        )
+
+        .then(res => {
+          console.log(res);
+          let list = res.data.data.movies;
+          if (list.length < 10) {
+            this.isEnd = true;
+          }
+          this.movieList = this.movieList.concat(list);
+          this.isLoading = false;
+        })
+        .catch(res => {
+          alert("获取数据失败");
+        });
+    }
+  },
+  created() {
+    this.getMovieData();
+  },
+  mounted() {
+    window.onscroll = () => {
+      // console.log(Math.random());
+      let scrollTop =
+        document.body.scrollTop || document.documentElement.scrollTop;
+      let clientHeight = document.documentElement.clientHeight;
+      let scrollHeight = document.documentElement.scrollHeight;
+      console.log(scrollTop, clientHeight, scrollHeight);
+      if (clientHeight + scrollTop === scrollHeight && !this.isEnd) {
+        this.isLoading = true;
+        setTimeout(() => {
+          this.getMovieData();
+        },1000);
+      }
+    };
   }
 };
 </script>
 
 <style scoped>
-
+.list {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  padding: 0 0.1rem;
+}
+.movie {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  padding: 0.1rem;
+}
+.movie-img {
+  flex-grow: 1;
+  width: 0;
+  margin-left: 0.1rem;
+}
+.movie-info {
+  flex-grow: 2;
+  width: 0;
+}
+.movie-name {
+  font-weight: bolder;
+}
+.loading {
+  text-align: center;
+  margin-bottom: 1rem;
+  position: fixed;
+  bottom: 1rem;
+  width: 100%;
+}
+.tip {
+  text-align: center;
+  margin-bottom: 1rem;
+}
 </style>

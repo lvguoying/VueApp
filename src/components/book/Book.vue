@@ -1,10 +1,10 @@
 <template>
     <div>
-        <Common-header bgColor="rgb(121,85,75)">
+        <!-- <Common-header bgColor="rgb(121,85,75)">
             <span slot="title">Book</span>
-        </Common-header> 
+        </Common-header>  -->
           <h1>book</h1>
-        <Common-footer bgColor="rgb(121,85,75)"></Common-footer>
+        <!-- <Common-footer bgColor="rgb(121,85,75)"></Common-footer> -->
     </div>
 </template>
 

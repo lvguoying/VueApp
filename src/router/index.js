@@ -11,16 +11,23 @@ export default new Router({
   routes: [
     { 
       path: '/',
-      name: '/Movie',
+      name: 'movie',
       component: Movie
     },{
       path: '/music',
-      component:Music
+      name: 'music',
+      component:Music,
+      beforeEnter(to,from,next){
+        from.name===null?next('/'):next()
+      }
     },{
       path:'/book',
-      component:Book
+      name: 'book',
+      component:Book,
+
     },{
       path:'/photo',
+      name: 'photo',
       component:Photo
     }
    
