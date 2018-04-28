@@ -9,13 +9,13 @@
 </template>
 
 <script>
-import CommonHeader from "@/components/common/Header";
-import CommonFooter from "@/components/common/Footer";
+// import CommonHeader from "@/components/common/Header";
+// import CommonFooter from "@/components/common/Footer";
 export default {
-  components: {
-    CommonHeader, 
-    CommonFooter
-  }
+  // components: {
+  //   CommonHeader, 
+  //   CommonFooter
+  // }
 };
 </script>
 

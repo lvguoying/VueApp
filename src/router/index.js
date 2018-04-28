@@ -5,7 +5,6 @@ import Music from '@/components/music/Music'
 import Book from '@/components/book/Book'
 import Photo from '@/components/photo/Photo'
 
-Vue.use(Router)
 
 export default new Router({
   routes: [
@@ -24,12 +23,23 @@ export default new Router({
       path:'/book',
       name: 'book',
       component:Book,
+      beforeEnter(to,from,next){
+        from.name===null?next('/'):next()
+      }
 
     },{
       path:'/photo',
       name: 'photo',
-      component:Photo
-    }
+      component:Photo,
+      beforeEnter(to,from,next){
+        from.name===null?next('/'):next()
+      }
+    },
+    // {
+    //   path:'/moviedetail',
+    //   component:MovieDetail
+    // }
    
   ]
 })
+Vue.use(Router)

@@ -1,7 +1,7 @@
 <template>
 <div>
   <ul class="list">
-    <li class="movie" v-for="(movie,index) in movieList" :key="index">
+    <li class="movie" v-for="(movie,index) in movieList" :key="index" @click="getDetail(movie.id)">
       <div class="movie-img">
         <img :src="movie.img" alt="">
       </div>
@@ -56,6 +56,9 @@ export default {
         .catch(res => {
           alert("获取数据失败");
         });
+    },
+    getDetail(movieId){
+
     }
   },
   created() {

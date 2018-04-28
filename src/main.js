@@ -12,6 +12,6 @@ global.API_PROXY = 'https://bird.ioliu.cn/v2/?url='
 new Vue({
   el: '#app',
   router,
+  template: '<App/>',
   components: { App },
-  template: '<App/>'
 })

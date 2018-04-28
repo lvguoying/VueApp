@@ -9,19 +9,9 @@
 
 <script> 
 export default {
-  // props:['bgColor'],
-  data(){
-    return{
-      // bgColor:'rgb(33,150,243)'
-    }
-  },
+
   props:['bgColor']
-  // methods:{
-  //   clickHandler({bgColor,title}){
-  //       this.bgColor=bgColor;
-  //       this.$emit('change',{bgColor,title});
-  //   }
-  // }
+
 }
 </script>
 
