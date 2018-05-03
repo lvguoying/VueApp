@@ -1,7 +1,7 @@
 <template>
 <div>
   <ul class="list">
-    <li class="movie" v-for="(movie,index) in movieList" :key="index" @click="getDetail(movie.id)">
+    <li class="movie" v-for="movie in movieList" :key="movie.id" @click="getDetail(movie.id)">
       <div class="movie-img">
         <img :src="movie.img" alt="">
       </div>
@@ -58,7 +58,7 @@ export default {
         });
     },
     getDetail(movieId){
-
+      this.$router.push(`/moviedetail/${movieId}`)
     }
   },
   created() {
@@ -85,7 +85,6 @@ export default {
 
 <style scoped>
 .list {
-  margin-top: 1rem;
   margin-bottom: 2rem;
   padding: 0 0.1rem;
 }

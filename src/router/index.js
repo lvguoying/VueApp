@@ -4,6 +4,7 @@ import Movie from '@/components/movie/Movie'
 import Music from '@/components/music/Music'
 import Book from '@/components/book/Book'
 import Photo from '@/components/photo/Photo'
+import MovieDetail from '@/components/movie/MovieDetail'
 
 
 export default new Router({
@@ -35,10 +36,10 @@ export default new Router({
         from.name===null?next('/'):next()
       }
     },
-    // {
-    //   path:'/moviedetail',
-    //   component:MovieDetail
-    // }
+    {
+      path:'/moviedetail/:movieId',
+      component:MovieDetail
+    }
    
   ]
 })
