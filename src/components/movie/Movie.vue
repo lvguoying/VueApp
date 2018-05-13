@@ -54,7 +54,7 @@ export default {
           this.isLoading = false;
         })
         .catch(res => {
-          alert("获取数据失败");
+          alert("你的代码有问题");
         });
     },
     getDetail(movieId){
